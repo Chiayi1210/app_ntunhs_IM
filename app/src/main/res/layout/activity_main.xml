@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:text="請輸入一個數字"
         tools:layout_editor_absoluteX="156dp"
-        tools:layout_editor_absoluteY="314dp" />
+        tools:layout_editor_absoluteY="314dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/result_textview"
@@ -20,14 +21,18 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="258dp" />
+        tools:layout_editor_absoluteY="258dp"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/editTextText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="@string/app_name"
         android:inputType="text"
+        android:minHeight="48dp"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="100dp"
         tools:layout_editor_absoluteY="364dp" />
 
@@ -37,7 +42,8 @@
         android:layout_height="wrap_content"
         android:text="RESET"
         tools:layout_editor_absoluteX="219dp"
-        tools:layout_editor_absoluteY="462dp" />
+        tools:layout_editor_absoluteY="462dp"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/Guess_Button"
