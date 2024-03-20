@@ -5,8 +5,10 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import kotlin.random.Random
-import kotlin.random.nextInt
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,30 +20,27 @@ class MainActivity : AppCompatActivity() {
         val guess_button = findViewById<Button>(R.id.guess_button)
         val reset_button = findViewById<Button>(R.id.reset_button)
         val editText = findViewById<EditText>(R.id.editText)
-        var validate_num:Int
-        var secret : Int = Random().nextInt(10)+1
+
+        var secret: Int = Random.nextInt(10) + 1
 
         guess_button.setOnClickListener {
-            textView.text = editText.text
-            validate_num = editText.text.toString().toInt() - secret
-            var ans_str: String = "恭喜!你猜對了!!!"
-
-            if (validate_num > 0) {
-                ans_str = "你猜太大了!!"
-
-            } else if (validate_num < 0) {
-                ans_str = "你猜小了，猜大一些~"
-            }else{
-                textView.text="重新來一次吧~"
+            val inputText = editText.text.toString()
+            if (inputText.isNotEmpty()) {
+                val validate_num: Int = inputText.toInt() - secret
+                var ans_str: String = "恭喜!你猜對了!!!"
+                if (validate_num > 0) {
+                    ans_str = "你猜太大了!!"
+                } else if (validate_num < 0) {
+                    ans_str = "你猜小了，猜大一些~"
+                }
+                textView.text = ans_str
+            } else {
+                Toast.makeText(this, "請輸入數字", Toast.LENGTH_SHORT).show()
             }
-            textView.text=ans_str
-
-
         }
-        reset_button.setOnClickListener{
-            secret= Random().nextInt( 10) + 1
-            textView.text="再猜一次XD"
+
+        reset_button.setOnClickListener {
+            textView.text
         }
     }
-
 }
