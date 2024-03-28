@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.CheckBox
+import android.widget.EditText
 import android.widget.Toast
 import java.util.Calendar
 
@@ -13,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val applyDate = findViewById<Button>(R.id.applyDate)
+        val applyDate = findViewById<EditText>(R.id.applydate)
         applyDate.setOnClickListener{
             val calender = Calendar.getInstance()
             val year = calender.get(Calendar.YEAR)

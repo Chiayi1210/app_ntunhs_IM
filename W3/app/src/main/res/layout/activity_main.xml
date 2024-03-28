@@ -11,7 +11,8 @@
         android:layout_height="717dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="2dp">
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="16dp">
 
         <TableRow
             android:layout_width="wrap_content"
@@ -135,7 +136,7 @@
 
                 <EditText
                     android:id="@+id/applydate"
-                    android:layout_width="wrap_content"
+                    android:layout_width="266dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5sp"
                     android:layout_marginTop="2sp"
@@ -145,12 +146,6 @@
                     android:text=" 日期:YYYY-MM-DD "
                     android:textSize="20sp" />
 
-                <Button
-                    android:id="@+id/applyDate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:text="選擇日期" />
             </TableRow>
 
         </TableRow>
@@ -241,3 +236,5 @@
     </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
