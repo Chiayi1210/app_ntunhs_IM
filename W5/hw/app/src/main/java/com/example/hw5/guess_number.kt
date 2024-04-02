@@ -38,7 +38,7 @@ class guess_number : AppCompatActivity() {
         }
 
         reset_button.setOnClickListener {
-            textView.text
+            textView.text = "重新猜一個數字吧~"
         }
         back.setOnClickListener {
             finish()

@@ -9,17 +9,18 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         val guess = findViewById<Button>(R.id.guess)
-        val play = findViewById<Button>(R.id.play)
+        val pss = findViewById<Button>(R.id.btnpss)
 
         guess.setOnClickListener{
-            val guessIntent = Intent(this,guess_number::class .java)
+            val guessIntent = Intent(this,guess_number::class.java)
             startActivity(guessIntent)
         }
 
-        play.setOnClickListener{
-            val playIntent = Intent(this,PSS::class.java)
-            startActivity(playIntent)
+        pss.setOnClickListener{
+            val pssIntent = Intent(this,PSS::class.java)
+            startActivity(pssIntent)
         }
 
     }
