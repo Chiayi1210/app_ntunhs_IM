@@ -16,11 +16,11 @@ class PSS : AppCompatActivity() {
     private lateinit var Rock: ImageButton
     private lateinit var Paper: ImageButton
     private lateinit var imageView: ImageView
-    val back = findViewById<Button>(R.id.btnback)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pss)
-
+        val back = findViewById<Button>(R.id.btnback)
         txtCom = findViewById<TextView>(R.id.txtCom)
         txtResult = findViewById<TextView>(R.id.txtResult)
         Scissors = findViewById<ImageButton>(R.id.imbtnScissors)
@@ -98,6 +98,10 @@ class PSS : AppCompatActivity() {
                 }
             }
         }
+
+        back.setOnClickListener {
+            finish()
+        }
     }
 
     enum class Choice {
@@ -126,9 +130,7 @@ class PSS : AppCompatActivity() {
                 txtResult.setText(R.string.lose)
             }
         }
-        back.setOnClickListener {
-            finish()
-        }
+
     }
 
     fun getChoiceString(choice: Choice): Int {
@@ -138,14 +140,15 @@ class PSS : AppCompatActivity() {
             Choice.PAPER -> R.string.paper
         }
     }
-        var lastTime: Long = 0
-        override fun finish() {
-            val currentTime = System.currentTimeMillis()
-            if (currentTime - lastTime > 3 * 1000) {
-                lastTime = currentTime
-                Toast.makeText(this, "再按一下確認", Toast.LENGTH_SHORT).show()
-            } else {
-                super.finish()
-            }
+    var lastTime: Long = 0
+    override fun finish() {
+        val currentTime = System.currentTimeMillis()
+        if (currentTime - lastTime > 3 * 1000) {
+            lastTime = currentTime
+            Toast.makeText(this, "再按一下確認", Toast.LENGTH_SHORT).show()
+        } else {
+            super.finish()
         }
-    }
+
+        }
+}
