@@ -12,6 +12,7 @@ import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
     val TAG:String = MainActivity::class.java.simpleName
+    private lateinit var model: Model
     private lateinit var handler: Handler
     private lateinit var binding: ActivityMainBinding
 
@@ -19,32 +20,30 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        model = Model()
+
         val textView = findViewById<TextView>(R.id.textView)
         val result_textView = findViewById<TextView>(R.id.result_textView)
         val guess_button = findViewById<Button>(R.id.guess_button)
         val reset_button = findViewById<Button>(R.id.reset_button)
         val editText = findViewById<EditText>(R.id.editText)
 
-        var secret: Int = Random.nextInt(10) + 1
 
         guess_button.setOnClickListener {
             val inputText = editText.text.toString()
             if (inputText.isNotEmpty()) {
-                val validate_num: Int = inputText.toInt() - secret
-                var ans_str: String = "恭喜!你猜對了!!!"
-                if (validate_num > 0) {
-                    ans_str = "你猜太大了!!"
-                } else if (validate_num < 0) {
-                    ans_str = "你猜小了，猜大一些~"
-                }
-                textView.text = ans_str
+                val input = inputText.toInt()
+                val answer = model.guess(input)
+                textView.text = answer
             } else {
                 Toast.makeText(this, "請輸入數字", Toast.LENGTH_SHORT).show()
             }
         }
 
         reset_button.setOnClickListener {
-            textView.text
+           model.reset()
+            textView.text = "猜看看!是1-10哪個數字??"
         }
     }
 }
