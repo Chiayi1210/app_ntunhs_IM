@@ -3,6 +3,7 @@ package com.example.hw6
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        handler = Handler(Looper.getMainLooper())
         model = Model()
 
         val textView = findViewById<TextView>(R.id.textView)

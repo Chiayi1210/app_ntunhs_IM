@@ -17,6 +17,7 @@ class Model {
         } else if (validate_num < 0) {
             ans_str = "你猜小了，猜大一些~"
         }
+        reset()
         return ans_str
     }
 
