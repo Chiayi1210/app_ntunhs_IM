@@ -1,15 +1,13 @@
-// RecordAdapter.kt
 package com.example.app_record
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.app_record.databinding.ActivityMainBinding
 import com.example.app_record.databinding.ItemRecordBinding
+
+data class Bprecord(val datetime: String, val sys: Int, val dia: Int, val hr: Int)
+data class Bprecords(val bprecords: List<Bprecord>)
 
 class RecordAdapter(
     private val context: Context,
@@ -19,7 +17,7 @@ class RecordAdapter(
     class RecordViewHolder(val binding: ItemRecordBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecordViewHolder {
-        val inflater = LayoutInflater.from(context)
+        val inflater = LayoutInflater.from(parent.context)
         val binding = ItemRecordBinding.inflate(inflater, parent, false)
         return RecordViewHolder(binding)
     }
@@ -29,9 +27,9 @@ class RecordAdapter(
         with(holder.binding) {
             txtDate.text = record.datetime
             txtResult.text = "SYS: ${record.sys}, DIA: ${record.dia}, HR: ${record.hr}"
-
         }
     }
+
     override fun getItemCount(): Int {
         return data.bprecords.size
     }
